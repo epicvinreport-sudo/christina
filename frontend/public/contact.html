@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Contact &amp; Events — Christina Carlsen</title>
+  <meta name="description" content="Get in touch about school visits, media inquiries, book clubs, or simply to say hello." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Caveat:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" type="image/png" href="images/author/headshot.png" />
+</head>
+<body>
+  <div class="page-loader"><div class="pl-inner">Christina Carlsen</div></div>
+  <div data-include="header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container-xl">
+        <span class="eyebrow">Contact &amp; Events</span>
+        <h1 data-split="hero">A few words<br/>are enough.</h1>
+        <p class="lede reveal-up">For school visits, media, book clubs, or simply to say hello. I read every note — and I write back when I can.</p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container-xl">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="section-label">Direct</span>
+            <h2 data-split="lines" class="max-14ch">Say hello.</h2>
+            <p>For all inquiries, the form is the fastest way to reach me. For media and rights, please use the dropdown so I can route your note to the right person.</p>
+            <p>You can also write to <a href="mailto:hello@christinacarlsen.com">hello@christinacarlsen.com</a> — but expect a slower reply on weeks I am writing.</p>
+
+            <span class="section-label inline-block mt-32">Upcoming events</span>
+            <h3>Where to find me next</h3>
+            <div class="events-list">
+              <div class="event-item">
+                <span class="date">14 Mar</span>
+                <div>
+                  <div class="ev-title">Author morning · St. Brigid’s Primary</div>
+                  <span class="ev-loc">Galway, Ireland · Private school event</span>
+                </div>
+                <a class="btn-text" href="#">Details</a>
+              </div>
+              <div class="event-item">
+                <span class="date">02 Apr</span>
+                <div>
+                  <div class="ev-title">Books &amp; bun reading · Open library hour</div>
+                  <span class="ev-loc">Dublin, Ireland · Ages 8–12 welcome</span>
+                </div>
+                <a class="btn-text" href="#">Register</a>
+              </div>
+              <div class="event-item">
+                <span class="date">21 May</span>
+                <div>
+                  <div class="ev-title">Virtual book club · Playing by Ear</div>
+                  <span class="ev-loc">Online · Q&amp;A with classrooms across three time zones</span>
+                </div>
+                <a class="btn-text" href="#">Join the list</a>
+              </div>
+            </div>
+            <p class="muted mt-14">No upcoming event in your city? Add yourself to my letters at the bottom of the page — I’ll write when a new one is scheduled.</p>
+          </div>
+
+          <form class="contact-form" data-demo-form>
+            <span class="section-label">Write a note</span>
+            <h2 data-split="lines" class="max-14ch">Send a message.</h2>
+            <div class="form-grid" class="mt-30">
+              <div class="field">
+                <label for="c-name">Your name</label>
+                <input id="c-name" type="text" name="name" placeholder="First &amp; last" required />
+              </div>
+              <div class="field">
+                <label for="c-email">Email</label>
+                <input id="c-email" type="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="field full">
+                <label for="c-subject">Subject</label>
+                <select id="c-subject" name="subject" required>
+                  <option>School visit</option>
+                  <option>Media inquiry</option>
+                  <option>Book club</option>
+                  <option>General</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="c-message">Your message</label>
+                <textarea id="c-message" name="message" rows="5" placeholder="A few sentences are enough — what you are reading, what you would like to ask." required></textarea>
+              </div>
+              <div class="full" class="mt-6">
+                <button class="btn btn-primary" type="submit">Send message
+                  <svg class="btn-arrow" viewBox="0 0 18 12" fill="none"><path d="M1 6h16M12 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+  <script src="/js/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
