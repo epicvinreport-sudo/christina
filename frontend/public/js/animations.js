@@ -31,17 +31,46 @@ window.initAnimations = function () {
   const fadeLoader = () => {
     const loader = document.querySelector('.page-loader');
     if (!loader) return;
-    gsap.to(loader, {
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-      onComplete: () => loader.remove(),
-    });
+    const tl = gsap.timeline({ onComplete: () => loader.remove() });
+    // animate the count up to 100 quickly while the progress bar fills (1.6s)
+    const count = loader.querySelector('[data-pl-count]');
+    if (count) {
+      const obj = { v: 0 };
+      tl.to(obj, {
+        v: 100,
+        duration: 1.5,
+        ease: 'power2.out',
+        onUpdate: () => {
+          count.textContent = String(Math.round(obj.v)).padStart(3, '0');
+        },
+      }, 0);
+    }
+    // Curtain wipe to reveal page
+    tl.add(() => loader.classList.add('is-leaving'), '>-0.05')
+      .to(loader, { duration: 0.9, ease: 'power3.inOut',
+        onStart: () => {
+          const t = loader.querySelector('.pl-curtain.top');
+          const b = loader.querySelector('.pl-curtain.bot');
+          if (t) gsap.to(t, { y: 0, yPercent: -100, duration: 0.9, ease: 'power3.inOut' });
+          if (b) gsap.to(b, { y: 0, yPercent: 100, duration: 0.9, ease: 'power3.inOut' });
+        }
+      })
+      .to(loader, { opacity: 0, duration: 0.4, ease: 'power2.out' }, '>-0.2');
   };
+  // Title reveal first
+  const plTitle = document.querySelector('.page-loader .pl-title span');
+  const plMark = document.querySelector('.page-loader .pl-mark');
+  if (plTitle) gsap.to(plTitle, { y: '0%', duration: 0.85, ease: 'power3.out', delay: 0.15 });
+  if (plMark) gsap.to(plMark, { opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.35 });
+
   if (document.readyState === 'complete') {
-    fadeLoader();
+    setTimeout(fadeLoader, 1600);
   } else {
-    window.addEventListener('load', fadeLoader);
+    let firedLoad = false;
+    const trigger = () => { if (firedLoad) return; firedLoad = true; setTimeout(fadeLoader, 1600); };
+    window.addEventListener('load', trigger);
+    // safety: never hold the loader for more than 5s
+    setTimeout(trigger, 5000);
   }
 
   /* SplitType: hero (intro) */
